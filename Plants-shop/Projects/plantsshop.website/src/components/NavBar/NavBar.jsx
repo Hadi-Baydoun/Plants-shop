@@ -1,13 +1,12 @@
 import './NavBar.css';
 import { useState, useEffect, useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import logo from '../../assets/pictures/logo.png';
+import logo from '../../assets/pictures/logo.webp';
 import ShoppingBasketOutlinedIcon from '@mui/icons-material/ShoppingBasketOutlined';
 import Person2OutlinedIcon from '@mui/icons-material/Person2Outlined';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { Snackbar, Alert } from '@mui/material';
-import axios from 'axios';
 import LoyaltyIcon from '@mui/icons-material/Loyalty';
 import { AuthContext } from '../../context/AuthContext';
 

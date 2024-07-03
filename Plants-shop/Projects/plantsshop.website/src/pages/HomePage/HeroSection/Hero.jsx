@@ -62,12 +62,10 @@ export default function Hero() {
           animate="visible"
                   variants={imageVariants}
                   alt="Decorative plant image"
-                  loading="lazy"
 
         />
         <motion.img
                   src={Hero1}
-                  loading="lazy"
                   className="welcome-image1"
                   alt="Main hero image"
           initial="hidden"

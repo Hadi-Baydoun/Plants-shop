@@ -1,6 +1,6 @@
 import React from 'react'
 import { Typography } from "@mui/material";
-import aboutJourney from "../../../assets/pictures/aboutJourney.jpg";
+import aboutJourney from "../../../assets/pictures/aboutJourney.webp";
 import "./OurJourney.css";
 export default function OurJourney() {
   return (

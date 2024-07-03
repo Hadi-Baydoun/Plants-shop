@@ -1,7 +1,7 @@
 import "./LoginPopup.css";
 import { useState, useContext, useEffect } from "react";
 import { motion } from "framer-motion";
-import cross_icon from "../../assets/pictures/cross_icon.png";
+import cross_icon from "../../assets/pictures/cross_icon.webp";
 import { Snackbar, Alert } from '@mui/material';
 import axios from "axios";
 import { AuthContext } from '../../context/AuthContext';
