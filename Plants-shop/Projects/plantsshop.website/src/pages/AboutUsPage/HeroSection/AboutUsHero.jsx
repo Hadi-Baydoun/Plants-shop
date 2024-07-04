@@ -1,6 +1,6 @@
-import { Typography } from "@mui/material";
-import aboutUsMainPic from "../../../assets/pictures/aboutUsMainPic.webp";
-import "./AboutUsHero.css";
+import { Typography } from '@mui/material';
+import aboutUsMainPic from '../../../assets/pictures/aboutUsMainPic.webp';
+import './AboutUsHero.css';
 
 export default function AboutUsHero() {
   return (
@@ -10,9 +10,9 @@ export default function AboutUsHero() {
       </div>
       <div className="aboutus-content">
         <div className="aboutus-left">
-          <Typography variant="h6" className="aboutus-title" color={"#ffffff"}>
-            Welcome to GreenGlow. Our mission is to bring the joy of nature
-            into your home, We believe that plants have the power to transform spaces
+          <Typography variant="h6" className="aboutus-title" color={'#ffffff'}>
+            Welcome to GreenGlow. Our mission is to bring the joy of nature into
+            your home, We believe that plants have the power to transform spaces
             and uplift spirits. Join us in cultivating a greener, more vibrant
             world!
           </Typography>
@@ -22,6 +22,5 @@ export default function AboutUsHero() {
         </div>
       </div>
     </div>
-    
-  )
+  );
 }

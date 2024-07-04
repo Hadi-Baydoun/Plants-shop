@@ -13,7 +13,9 @@ import Home from './pages/HomePage/Home';
 
 // Lazy load components
 const Shop = lazy(() => import('./pages/ShopPage/Shop'));
-const ProductDescription = lazy(() => import('./pages/ShopPage/ProductDescription/ProductDescription'));
+const ProductDescription = lazy(
+  () => import('./pages/ShopPage/ProductDescription/ProductDescription')
+);
 const AboutUs = lazy(() => import('./pages/AboutUsPage/AboutUs'));
 const Contact = lazy(() => import('./pages/ContactPage/Contact'));
 const Cart = lazy(() => import('./pages/CartPage/Cart'));
@@ -21,33 +23,31 @@ const OrderPage = lazy(() => import('./pages/OrderPage/OrderPage'));
 const Wishlist = lazy(() => import('./pages/WishlistPage/wishlist'));
 
 function App() {
-    const [showLogin, setShowLogin] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
 
-    return (
-        <AuthProvider>
-            <Router>
-                <div className='app'>
-                    {showLogin && (
-                        <LoginPopup setShowLogin={setShowLogin} />
-                    )}
-                    <NavBar setShowLogin={setShowLogin} />
-                    <Suspense fallback={<div>Loading...</div>}>
-                        <Routes>
-                            <Route path="/" element={<Home />} />
-                            <Route path="/shop" element={<Shop />} />
-                            <Route path="/product/:id" element={<ProductDescription />} />
-                            <Route path="/about" element={<AboutUs />} />
-                            <Route path="/contact" element={<Contact />} />
-                            <Route path="/cart" element={<Cart />} />
-                            <Route path="/order" element={<OrderPage />} />
-                            <Route path="/wishlist" element={<Wishlist />} />
-                        </Routes>
-                    </Suspense>
-                    <Footer />
-                </div>
-            </Router>
-        </AuthProvider>
-    );
+  return (
+    <AuthProvider>
+      <Router>
+        <div className="app">
+          {showLogin && <LoginPopup setShowLogin={setShowLogin} />}
+          <NavBar setShowLogin={setShowLogin} />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/shop" element={<Shop />} />
+              <Route path="/product/:id" element={<ProductDescription />} />
+              <Route path="/about" element={<AboutUs />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/order" element={<OrderPage />} />
+              <Route path="/wishlist" element={<Wishlist />} />
+            </Routes>
+          </Suspense>
+          <Footer />
+        </div>
+      </Router>
+    </AuthProvider>
+  );
 }
 
 export default App;

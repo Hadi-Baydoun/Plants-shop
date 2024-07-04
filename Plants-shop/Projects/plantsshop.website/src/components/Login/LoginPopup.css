@@ -30,15 +30,15 @@
   align-items: center;
   color: black;
 }
-.logged-in-content{
-    color:black;
-    display:flex;
-    flex-direction:column;
-    gap:30px;
+.logged-in-content {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 .login-popup-title img {
-    width: 16px;
-    cursor: pointer;
+  width: 16px;
+  cursor: pointer;
 }
 .login-popup-inputs {
   display: flex;
@@ -68,20 +68,20 @@
   gap: 8px;
   margin-top: -15px;
 }
-.login-popup-condition input{
+.login-popup-condition input {
   margin-top: 5px;
 }
 
-.login-popup p span{
+.login-popup p span {
   color: #4c6b3c;
   cursor: pointer;
   font-weight: 500;
 }
 
 .login-popup-container button:hover {
-background-color: #3c5232 !important;
-color: white !important;
-border-color: #3c5232 !important;
+  background-color: #3c5232 !important;
+  color: white !important;
+  border-color: #3c5232 !important;
 }
 
 @media (max-width: 480px) {

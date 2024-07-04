@@ -1,5 +1,4 @@
-
-*{
+* {
   font-family: 'Montserrat', sans-serif !important;
 }
 .story-area {
@@ -88,7 +87,8 @@
     gap: 20px;
   }
 
-  .story-left-side, .story-right-side {
+  .story-left-side,
+  .story-right-side {
     width: 100%;
   }
 
@@ -118,7 +118,8 @@
     gap: 20px;
   }
 
-  .story-left-side, .story-right-side {
+  .story-left-side,
+  .story-right-side {
     width: 100%;
   }
 
@@ -158,7 +159,7 @@
   }
   .benefits ul {
     padding-left: 10%;
-}
+  }
 
   .benefit-big-image {
     object-fit: cover;
@@ -171,6 +172,4 @@
     padding: 8px 20px !important;
     font-size: 0.875rem !important;
   }
-  
 }
-

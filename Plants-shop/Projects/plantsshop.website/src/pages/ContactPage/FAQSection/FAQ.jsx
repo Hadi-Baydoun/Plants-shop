@@ -1,11 +1,11 @@
-import "./FAQ.css";
+import './FAQ.css';
 import {
   Typography,
   Accordion,
   AccordionSummary,
   AccordionDetails,
-} from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+} from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 export default function FAQ() {
   return (
     <div className="faqs-section">

@@ -1,5 +1,4 @@
-
-*{
+* {
   font-family: 'Montserrat', sans-serif !important;
 }
 
@@ -19,7 +18,6 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 35px;
-
 }
 
 .welcome-title {
@@ -53,7 +51,7 @@
 }
 
 .welcome-right {
-  position: relative; 
+  position: relative;
   max-width: 45%;
   margin-top: 3%;
 }
@@ -64,7 +62,7 @@
   object-fit: cover;
   position: relative;
   z-index: 3;
-  margin-bottom: -60px; 
+  margin-bottom: -60px;
 }
 
 .welcome-image {
@@ -100,7 +98,7 @@
     object-fit: cover;
     position: relative;
     z-index: 3;
-    margin-bottom: -60px; 
+    margin-bottom: -60px;
   }
 }
 
@@ -116,16 +114,15 @@
     max-width: 100%;
   }
 
-
   .welcome-image1 {
     height: 60vh;
   }
   .welcome-right {
-    position: relative; 
+    position: relative;
     max-width: 45%;
     margin-top: 3%;
   }
-  
+
   .welcome-image1 {
     width: 100%;
     height: 100vh;
@@ -133,7 +130,7 @@
     position: relative;
     z-index: 3;
   }
-  
+
   .welcome-image {
     width: auto;
     height: auto;
@@ -152,7 +149,7 @@
     margin: 0;
     line-height: 1.1em;
     max-width: 65%;
-}
+  }
 }
 
 @media (max-width: 768px) {
@@ -194,7 +191,7 @@
     object-fit: cover;
     position: relative;
     z-index: 3;
-    margin-bottom: -100px; 
+    margin-bottom: -100px;
   }
   .welcome-image {
     display: none;

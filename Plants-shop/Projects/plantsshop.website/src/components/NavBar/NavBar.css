@@ -17,8 +17,11 @@
   background-color: black;
 }
 
-.navbar .logo, .scrolled-logo {
-  transition: opacity 0.3s ease, transform 0.3s ease;
+.navbar .logo,
+.scrolled-logo {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
 
 .navbar .logo {
@@ -92,12 +95,11 @@
 }
 
 .navbar-menu li:hover {
-  transform: scale(1.1); 
-  
+  transform: scale(1.1);
 }
 
 .navbar-menu li.active {
-  color: white; 
+  color: white;
 }
 
 .navbar-search-icon {
@@ -107,7 +109,7 @@
 .navbar-right .MuiSvgIcon-root {
   font-size: 2rem;
   cursor: pointer;
-  color: white; 
+  color: white;
 }
 
 .navbar-hamburger {
@@ -131,7 +133,9 @@
     margin: 0;
     opacity: 0;
     transform: translateY(-100%);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition:
+      opacity 0.5s ease,
+      transform 0.5s ease;
   }
 
   .navbar-menu.open {
