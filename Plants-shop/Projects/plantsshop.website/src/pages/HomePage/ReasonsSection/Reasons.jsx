@@ -1,12 +1,12 @@
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import reasonPlant from "../../../assets/pictures/reasonPlant.webp";
-import { useState, useEffect } from "react";
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import "./Reasons.css";
-import "react-lazy-load-image-component/src/effects/blur.css";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import reasonPlant from '../../../assets/pictures/reasonPlant.webp';
+import { useState, useEffect } from 'react';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import './Reasons.css';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const reasonVariants = {
   hidden: { opacity: 0 },
@@ -15,7 +15,7 @@ const reasonVariants = {
 
 const imageVariants = {
   hidden: { opacity: 0, x: -100 },
-  visible: { opacity: 1, x: 0, transition: { duration: 1 } }
+  visible: { opacity: 1, x: 0, transition: { duration: 1 } },
 };
 
 export default function Reasons() {
@@ -39,7 +39,7 @@ export default function Reasons() {
     "' To improve the aesthetics of my office '",
     "' To create a natural privacy screen '",
     "' To commemorate a special occasion '",
-    "' To enjoy seasonal changes in my garden '"
+    "' To enjoy seasonal changes in my garden '",
   ];
 
   const [currentReason, setCurrentReason] = useState(reasons[0]);
@@ -54,57 +54,57 @@ export default function Reasons() {
   const controls = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.1
+    threshold: 0.1,
   });
 
   useEffect(() => {
     if (inView) {
-      controls.start("visible");
+      controls.start('visible');
     }
   }, [controls, inView]);
 
-    return (
-        <div className="reason-section" ref={ref}>
-            <motion.div
-                className="left-side"
-                initial="hidden"
-                animate={controls}
-                variants={imageVariants}
-            >
-                <div className="reason-image">
-                    <LazyLoadImage
-                        src={reasonPlant}
-                        alt="Plant"
-                        effect="blur"
-                        className="reason-image"
-                        rel="preload"
-                    />
-                </div>
-            </motion.div>
-            <div className="right-side">
-                <Typography variant="h4" gutterBottom>
-                    Best Reasons To Buy A Plant...
-                </Typography>
-                <motion.div
-                    key={reasonKey}
-                    initial="hidden"
-                    animate="visible"
-                    exit="hidden"
-                    variants={reasonVariants}
-                >
-                    <Typography className="reasons" variant="h6">
-                        {currentReason}
-                    </Typography>
-                </motion.div>
-                <Button
-                    variant="contained"
-                    color="primary"
-                    className="reason-button"
-                    onClick={showRandomReason}
-                >
-                    See Another Reason
-                </Button>
-            </div>
+  return (
+    <div className="reason-section" ref={ref}>
+      <motion.div
+        className="left-side"
+        initial="hidden"
+        animate={controls}
+        variants={imageVariants}
+      >
+        <div className="reason-image">
+          <LazyLoadImage
+            src={reasonPlant}
+            alt="Plant"
+            effect="blur"
+            className="reason-image"
+            rel="preload"
+          />
         </div>
-    );
+      </motion.div>
+      <div className="right-side">
+        <Typography variant="h4" gutterBottom>
+          Best Reasons To Buy A Plant...
+        </Typography>
+        <motion.div
+          key={reasonKey}
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+          variants={reasonVariants}
+        >
+          <Typography className="reasons" variant="h6">
+            {currentReason}
+          </Typography>
+        </motion.div>
+        <Button
+          variant="contained"
+          color="primary"
+          className="reason-button"
+          onClick={showRandomReason}
+        >
+          See Another Reason
+        </Button>
+      </div>
+    </div>
+  );
 }

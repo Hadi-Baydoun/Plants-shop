@@ -1,17 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .vision-goals-section {
   display: flex;
   justify-content: space-between;
@@ -19,7 +5,6 @@
   background-color: #ffffff;
   z-index: 0;
   position: relative;
-  
 }
 
 .vision-section,
@@ -32,7 +17,7 @@
 
 .vision-title,
 .goals-title {
-  color: #6b705c !important; 
+  color: #6b705c !important;
   font-weight: bold !important;
 }
 
@@ -47,7 +32,7 @@
   .vision-goals-section {
     flex-direction: column;
     padding: 40px 20px;
-    top: 0px; 
+    top: 0px;
   }
 
   .vision-section,

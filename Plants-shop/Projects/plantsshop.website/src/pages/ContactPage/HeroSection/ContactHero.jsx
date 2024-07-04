@@ -1,6 +1,6 @@
-import { Typography } from "@mui/material";
-import benefitsBig from "../../../assets/pictures/benefitsBig.webp";
-import "../../AboutUsPage/HeroSection/AboutUsHero.css";
+import { Typography } from '@mui/material';
+import benefitsBig from '../../../assets/pictures/benefitsBig.webp';
+import '../../AboutUsPage/HeroSection/AboutUsHero.css';
 export default function ContactHero() {
   return (
     <div className="aboutus-section">
@@ -9,7 +9,7 @@ export default function ContactHero() {
       </div>
       <div className="aboutus-content">
         <div className="aboutus-left">
-          <Typography variant="h6" className="aboutus-title" color={"#ffffff"}>
+          <Typography variant="h6" className="aboutus-title" color={'#ffffff'}>
             We're here to assist you in any way we can. Whether you have
             questions about our products, need personalized recommendations, or
             simply want to connect with our team, don't hesitate to reach out.

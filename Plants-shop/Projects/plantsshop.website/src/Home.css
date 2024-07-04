@@ -18,9 +18,6 @@
   height: fit-content;
 }
 
-
-
-
 .shop-content {
   width: 75%;
   padding: 60px 140px;
@@ -35,16 +32,18 @@
 
 .shop-search-bar {
   grid-column: span 3;
-  margin: 30px 0px!important; /* Makes the search bar span all columns */
+  margin: 30px 0px !important; /* Makes the search bar span all columns */
   margin-bottom: 30px;
-  width: 50%; 
-  justify-self: center; 
+  width: 50%;
+  justify-self: center;
 }
 
 .new-shop {
   border-radius: 15px;
   box-shadow: 0px 0px 10px #00000015;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
   animation: fadeIn 1s;
   overflow: hidden;
   background-color: #f9f9f9;
@@ -98,15 +97,10 @@
     grid-column: span 1;
     width: 100%;
   }
-  .shop-section-title{
+  .shop-section-title {
     display: none;
   }
   .new-arrivals-product:hover {
     display: none;
   }
 }
-
-
-
-
-

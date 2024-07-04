@@ -40,7 +40,6 @@
   font-size: 1rem !important;
   border-radius: 0 !important;
   transition: background-color 0.3s ease !important;
-  
 }
 .reason-button:hover {
   background-color: white !important;
@@ -64,7 +63,8 @@
     text-align: center;
   }
 
-  .left-side, .right-side {
+  .left-side,
+  .right-side {
     width: 100%;
   }
 

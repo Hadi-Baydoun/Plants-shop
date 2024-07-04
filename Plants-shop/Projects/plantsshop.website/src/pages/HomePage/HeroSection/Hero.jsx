@@ -1,9 +1,9 @@
-import  Button  from "@mui/material/Button";
-import  Typography from "@mui/material/Typography";
-import "./Hero.css";
-import Hero2 from "../../../assets/pictures/Hero2.webp";
-import Hero1 from "../../../assets/pictures/Hero1.webp";
-import { motion } from "framer-motion";
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import './Hero.css';
+import Hero2 from '../../../assets/pictures/Hero2.webp';
+import Hero1 from '../../../assets/pictures/Hero1.webp';
+import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
 const textVariants = {
@@ -22,7 +22,7 @@ const imageVariants = {
 };
 
 export default function Hero() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   return (
     <div className="welcome-section">
       <div className="welcome-left">
@@ -32,13 +32,13 @@ export default function Hero() {
           animate="visible"
           variants={textVariants}
         >
-          <Typography variant="h6" className="welcome-title" color={"#ffffff"}>
+          <Typography variant="h6" className="welcome-title" color={'#ffffff'}>
             Welcome To GreenGlow
           </Typography>
           <Typography
             variant="h3"
             className="welcome-subtitle"
-            color={"#ffffff"}
+            color={'#ffffff'}
           >
             Find Your Perfect Plant.
           </Typography>
@@ -49,7 +49,12 @@ export default function Hero() {
           animate="visible"
           variants={buttonVariants}
         >
-                  <Button variant="contained" color="primary" className="shop-button" onClick={() => navigate('/shop')}>
+          <Button
+            variant="contained"
+            color="primary"
+            className="shop-button"
+            onClick={() => navigate('/shop')}
+          >
             SHOP NOW
           </Button>
         </motion.div>
@@ -60,14 +65,13 @@ export default function Hero() {
           className="welcome-image"
           initial="hidden"
           animate="visible"
-                  variants={imageVariants}
-                  alt="Decorative plant image"
-
+          variants={imageVariants}
+          alt="Decorative plant image"
         />
         <motion.img
-                  src={Hero1}
-                  className="welcome-image1"
-                  alt="Main hero image"
+          src={Hero1}
+          className="welcome-image1"
+          alt="Main hero image"
           initial="hidden"
           animate="visible"
           variants={imageVariants}

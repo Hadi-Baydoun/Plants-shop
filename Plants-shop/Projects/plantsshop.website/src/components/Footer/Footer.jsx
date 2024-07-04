@@ -9,8 +9,7 @@ export default function Footer() {
   return (
     <footer className="section-p1">
       <div className="col">
-      <img className="logo" src={LogoBlack} alt="logo"></img>
-        
+        <img className="logo" src={LogoBlack} alt="logo"></img>
       </div>
 
       <div className="col">
@@ -24,22 +23,27 @@ export default function Footer() {
         <h4>My Account</h4>
         <a href="/cart">View Cart</a>
         <a href="/wishlist">My Wishlist</a>
-              </div>
+      </div>
 
-      
       <div className="col install">
         <h4>Secured Payment Gateways</h4>
         <div className="row">
-        <img src={pay} alt="Payment Gateways" />
-        </div> 
+          <img src={pay} alt="Payment Gateways" />
+        </div>
         <div className="follow">
           <h4>Follow us</h4>
           <div className="icon">
-            <i className="fab fa-facebook"><FacebookIcon/></i>
-            <i className="fab fa-instagram"><InstagramIcon/></i>
-            <i className="fab fa-youtube"><YouTubeIcon/></i>
+            <i className="fab fa-facebook">
+              <FacebookIcon />
+            </i>
+            <i className="fab fa-instagram">
+              <InstagramIcon />
+            </i>
+            <i className="fab fa-youtube">
+              <YouTubeIcon />
+            </i>
           </div>
-        </div>   
+        </div>
       </div>
 
       <div className="copyrights">

@@ -4,12 +4,12 @@
   align-items: flex-start;
   justify-content: center;
   padding: 60px 140px 300px 140px;
-  background-color: #ffffff; 
+  background-color: #ffffff;
   position: relative;
 }
 
 .section-subtitle {
-  color: #6b705c; 
+  color: #6b705c;
   letter-spacing: 1.5px;
   margin-bottom: 20px;
   font-weight: bold !important;
@@ -19,22 +19,22 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 99px; 
+  gap: 99px;
   width: 100%;
 }
 
 .our-story-left {
-  max-width: 44%; 
+  max-width: 44%;
 }
 
 .section-title {
-  color: #3c5232 !important; 
+  color: #3c5232 !important;
   font-weight: bold !important;
   margin-bottom: 20px;
 }
 
 .our-story-right {
-  max-width: 56%; 
+  max-width: 56%;
 }
 
 .section-description {
@@ -57,11 +57,10 @@
   }
 
   .our-story-content {
-    flex-direction: column
+    flex-direction: column;
   }
   .about-story-image {
     display: none;
-    
   }
   .our-journey {
     flex-direction: column;
