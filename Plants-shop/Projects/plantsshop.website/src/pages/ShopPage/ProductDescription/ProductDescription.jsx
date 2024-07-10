@@ -52,7 +52,7 @@ export default function ProductDescription() {
   useEffect(() => {
     fetchCartItems(user, setCart, setCartId);
     fetchWishlistItems(user, setWishlist, setWishlistId);
-  }, [user, setCartId, setWishlistId]);
+  }, [user, setCart, setCartId, setWishlist, setWishlistId]);
 
   const handleAddToCartToggle = (product) => {
     handleCartToggle(

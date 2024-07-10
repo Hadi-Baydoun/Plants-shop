@@ -1,17 +1,18 @@
 import './LoginPopup.css';
-import { useState, useContext, useEffect } from 'react';
+import { useState, useCallback, useContext, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import cross_icon from '../../assets/pictures/cross_icon.webp';
 import { Snackbar, Alert } from '@mui/material';
 import axios from 'axios';
 import { AuthContext } from '../../context/AuthContext';
 import { API_HOST } from '../../assets/constants';
+import PropTypes from 'prop-types';
 
-const LoginPopup = ({ setShowLogin, loggedInUser, setLoggedInUser }) => {
+const LoginPopup = ({ setShowLogin, setLoggedInUser }) => {
   const { user, login, logout } = useContext(AuthContext);
-  const [currState, setCurrState] = useState('Sign Up'); // State for current form state (Login/Sign Up)
-  const [showAddressForm, setShowAddressForm] = useState(false); // State to show/hide address form
-  const [customerId, setCustomerId] = useState(null); // State for customer ID
+  const [currState, setCurrState] = useState('Sign Up');
+  const [showAddressForm, setShowAddressForm] = useState(false);
+  const [customerId] = useState(null); // Removed setCustomerId as it was unused
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -38,91 +39,98 @@ const LoginPopup = ({ setShowLogin, loggedInUser, setLoggedInUser }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleLoginSubmit = async (e) => {
-    e.preventDefault();
-    const { email, password } = formData;
-    const result = await login(email, password); // Call login function from AuthContext
-    if (result.success) {
-      setSnackbarMessage('Login Successful!');
-      setSnackbarSeverity('success');
+  const handleLoginSubmit = useCallback(
+    async (e) => {
+      e.preventDefault();
+      const { email, password } = formData;
+      const result = await login(email, password);
+      if (result.success) {
+        setSnackbarMessage('Login Successful!');
+        setSnackbarSeverity('success');
+      } else {
+        setSnackbarMessage(result.message);
+        setSnackbarSeverity('error');
+      }
       setSnackbarOpen(true);
-    } else {
-      setSnackbarMessage(result.message);
-      setSnackbarSeverity('error');
-      setSnackbarOpen(true);
-    }
-  };
+    },
+    [formData, login]
+  );
 
   // Handle customer registration form submission
-  const handleCustomerSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const customerResponse = await axios.post(
-        `${API_HOST}/api/Customer/add`,
-        {
-          first_Name: formData.firstName,
-          last_Name: formData.lastName,
-          phone_Number: formData.phoneNumber,
-          email: formData.email,
-          password: formData.password,
-        }
-      );
+  const handleCustomerSubmit = useCallback(
+    async (e) => {
+      e.preventDefault();
+      try {
+        const customerResponse = await axios.post(
+          `${API_HOST}/api/Customer/add`,
+          {
+            first_Name: formData.firstName,
+            last_Name: formData.lastName,
+            phone_Number: formData.phoneNumber,
+            email: formData.email,
+            password: formData.password,
+          }
+        );
 
-      if (customerResponse.status === 200) {
-        setSnackbarMessage('Account created successfully! Please login.');
-        setSnackbarSeverity('success');
-        setCurrState('Login'); // Switch to login form after successful registration
-      } else {
+        if (customerResponse.status === 200) {
+          setSnackbarMessage('Account created successfully! Please login.');
+          setSnackbarSeverity('success');
+          setCurrState('Login');
+        } else {
+          setSnackbarMessage('Failed to create account. Please try again.');
+          setSnackbarSeverity('error');
+        }
+      } catch (error) {
         setSnackbarMessage('Failed to create account. Please try again.');
         setSnackbarSeverity('error');
       }
-    } catch (error) {
-      setSnackbarMessage('Failed to create account. Please try again.');
-      setSnackbarSeverity('error');
-    }
-    setSnackbarOpen(true);
-  };
+      setSnackbarOpen(true);
+    },
+    [formData]
+  );
 
   // Handle address form submission
-  const handleAddressSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const payload = {
-        city: formData.city,
-        region: formData.region,
-        address: formData.address,
-        street_number: formData.streetNumber,
-        postal_code: formData.postalCode,
-        Customer_id: customerId,
-        Customer: {
+  const handleAddressSubmit = useCallback(
+    async (e) => {
+      e.preventDefault();
+      try {
+        const payload = {
+          city: formData.city,
+          region: formData.region,
+          address: formData.address,
+          street_number: formData.streetNumber,
+          postal_code: formData.postalCode,
+          Customer_id: customerId,
+          Customer: {
+            first_Name: formData.firstName,
+            last_Name: formData.lastName,
+            phone_Number: formData.phoneNumber,
+            email: formData.email,
+            password: formData.password,
+          },
+        };
+
+        await axios.post(`${API_HOST}/api/Address/add`, payload);
+
+        setLoggedInUser({
           first_Name: formData.firstName,
           last_Name: formData.lastName,
           phone_Number: formData.phoneNumber,
           email: formData.email,
-          password: formData.password,
-        },
-      };
+        });
 
-      await axios.post(`${API_HOST}/api/Address/add`, payload);
-
-      // Set the logged in user state
-      setLoggedInUser({
-        first_Name: formData.firstName,
-        last_Name: formData.lastName,
-        phone_Number: formData.phoneNumber,
-        email: formData.email,
-      });
-
-      setSnackbarMessage('Address added successfully!');
-      setSnackbarSeverity('success');
-      setSnackbarOpen(true);
-      setShowLogin(false);
-    } catch (error) {
-      setSnackbarMessage('Address creation failed. Please try again.');
-      setSnackbarSeverity('error');
-      setSnackbarOpen(true);
-    }
-  };
+        setSnackbarMessage('Address added successfully!');
+        setSnackbarSeverity('success');
+        setSnackbarOpen(true);
+        setShowLogin(false);
+      } catch (error) {
+        setSnackbarMessage('Address creation failed. Please try again.');
+        setSnackbarSeverity('error');
+        setSnackbarOpen(true);
+      }
+    },
+    [formData, customerId, setLoggedInUser, setShowLogin]
+  );
 
   // Close the login popup after showing a success message
   useEffect(() => {
@@ -132,12 +140,12 @@ const LoginPopup = ({ setShowLogin, loggedInUser, setLoggedInUser }) => {
       }, 2000);
       return () => clearTimeout(timer);
     }
-  }, [snackbarOpen, snackbarSeverity]);
+  }, [snackbarOpen, snackbarSeverity, setShowLogin]);
 
   const handleSignOut = () => {
-    logout(); // Call logout function from AuthContext
-    setCurrState('Sign Up'); // Switch to sign up form
-    setShowAddressForm(false); // Hide address form
+    logout();
+    setCurrState('Sign Up');
+    setShowAddressForm(false);
   };
 
   useEffect(() => {
@@ -149,7 +157,13 @@ const LoginPopup = ({ setShowLogin, loggedInUser, setLoggedInUser }) => {
         : handleLoginSubmit;
     form.addEventListener('submit', submitHandler);
     return () => form.removeEventListener('submit', submitHandler);
-  }, [showAddressForm, formData, setShowLogin, currState]);
+  }, [
+    showAddressForm,
+    currState,
+    handleAddressSubmit,
+    handleCustomerSubmit,
+    handleLoginSubmit,
+  ]);
 
   return (
     <div className="login-popup">
@@ -331,6 +345,10 @@ const LoginPopup = ({ setShowLogin, loggedInUser, setLoggedInUser }) => {
       </motion.form>
     </div>
   );
+};
+
+LoginPopup.propTypes = {
+  setShowLogin: PropTypes.func.isRequired,
 };
 
 export default LoginPopup;

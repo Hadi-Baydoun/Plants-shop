@@ -11,7 +11,7 @@ export default function Goals() {
           Our vision is to infuse every home with the timeless beauty and
           functionality of plants. We are dedicated to creating elegant,
           handcrafted plant arrangements that elevate everyday living, whether
-          it's enjoying a vibrant indoor garden, decorating a space, or finding
+          it is enjoying a vibrant indoor garden, decorating a space, or finding
           the perfect gift.
         </Typography>
       </div>

@@ -1,8 +1,8 @@
 import { useState, useEffect, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+/*import { useNavigate } from 'react-router-dom';*/
 import axios from 'axios';
 import './Cart.css';
-import { ButtonGroup, IconButton, Typography, Box } from '@mui/material';
+import { IconButton, Typography, Box } from '@mui/material';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -12,10 +12,9 @@ import { API_HOST } from '../../assets/constants';
 
 export default function Cart() {
   const [cartItems, setCartItems] = useState([]);
-  const navigate = useNavigate();
-  const { user, cartId, setCartId } = useContext(AuthContext);
+  /*const navigate = useNavigate();*/
+  const { user, setCartId } = useContext(AuthContext);
 
-  //maybe it will give an issue later ( setCartItems and not setCart)
   useEffect(() => {
     if (user) {
       fetchCartItems(user, setCartItems, setCartId);
@@ -50,9 +49,9 @@ export default function Cart() {
     return cartItems.reduce((acc, item) => acc + item.total, 0).toFixed(2);
   };
 
-  const handleProceedToCheckout = () => {
+/*  const handleProceedToCheckout = () => {
     navigate('/order');
-  };
+  };*/
 
   return (
     <div className="cart">
@@ -121,7 +120,7 @@ export default function Cart() {
               <b>${calculateSubtotal()}</b>
             </div>
           </div>
-          <button onClick={handleProceedToCheckout}>Proceed To Checkout</button>
+          <button>Proceed To Checkout</button>
         </div>
       </div>
       <hr />

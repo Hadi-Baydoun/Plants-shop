@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+/*import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './OrderPage.css';
 import { API_HOST } from '../../assets/constants';
@@ -113,3 +113,4 @@ export const OrderPage = ({ loggedInUser, cartId, customerId }) => {
     </form>
   );
 };
+*/

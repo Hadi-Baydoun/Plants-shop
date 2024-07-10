@@ -96,7 +96,7 @@ export default function Testimonials() {
             variants={quoteVariants}
           >
             <Typography variant="body1" className="quote">
-              " {testimonials[currentTestimonial].quote} "
+              &quot; {testimonials[currentTestimonial].quote} &quot;
             </Typography>
           </motion.div>
           <div className="testimonial-author">

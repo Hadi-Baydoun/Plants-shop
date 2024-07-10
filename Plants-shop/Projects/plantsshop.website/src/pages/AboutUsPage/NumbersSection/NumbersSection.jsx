@@ -2,6 +2,7 @@ import './NumbersSection.css';
 import { useEffect, useState } from 'react';
 import { Typography } from '@mui/material';
 import { useInView } from 'react-intersection-observer';
+import PropTypes from 'prop-types';
 
 const Counter = ({ end, suffix }) => {
   const [count, setCount] = useState(0);
@@ -15,7 +16,6 @@ const Counter = ({ end, suffix }) => {
       let start = 0;
       const duration = 2000;
       const increment = end / (duration / 16);
-
       const updateCount = () => {
         start += increment;
         if (start < end) {
@@ -25,7 +25,6 @@ const Counter = ({ end, suffix }) => {
           setCount(end);
         }
       };
-
       requestAnimationFrame(updateCount);
     }
   }, [inView, end]);
@@ -38,6 +37,11 @@ const Counter = ({ end, suffix }) => {
       </Typography>
     </div>
   );
+};
+
+Counter.propTypes = {
+  end: PropTypes.number.isRequired,
+  suffix: PropTypes.string.isRequired,
 };
 
 export default function NumbersSection() {

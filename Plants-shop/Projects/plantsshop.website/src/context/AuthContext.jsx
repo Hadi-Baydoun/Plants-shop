@@ -1,10 +1,11 @@
-import React, { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect, useCallback } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 import { API_HOST } from '../assets/constants';
+
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  // Initialize state variables for user, token, token expiry, cart, and wishlist
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem('user')) || null
   );
@@ -23,22 +24,21 @@ const AuthProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [wishlist, setWishlist] = useState([]);
 
-  // Function to handle login
   const login = async (email, password) => {
     try {
       const loginResponse = await axios.post(`${API_HOST}/api/Customer/login`, {
         email,
         password,
       });
-      const { token, customer, refreshToken, refreshTokenExpiry } =
-        loginResponse.data;
+      const { token, customer, refreshToken } = loginResponse.data;
       customer.password = password;
-      setUser(customer); // Set the user object with the customer data
+      setUser(customer);
       setToken(token);
       setRefreshToken(refreshToken);
-      const expiryTime = Date.now() + 60 * 60 * 1000; // Set token expiry to 60 minute from now
+      const expiryTime = Date.now() + 60 * 60 * 1000;
       const refreshExpiryTime = Date.now() + 7 * 24 * 60 * 60 * 1000;
-      setTokenExpiry(expiryTime); // Set the token expiry time
+      setTokenExpiry(expiryTime);
+      setRefreshTokenExpiry(refreshExpiryTime);
       localStorage.setItem('user', JSON.stringify(customer));
       localStorage.setItem('token', token);
       localStorage.setItem('refreshToken', refreshToken);
@@ -53,7 +53,22 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-  const refreshAccessToken = async () => {
+  const logout = useCallback(() => {
+    setUser(null);
+    setToken('');
+    setTokenExpiry(0);
+    setCartId(null);
+    setWishlistId(null);
+    setCart([]);
+    setWishlist([]);
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    localStorage.removeItem('tokenExpiry');
+    localStorage.removeItem('refreshToken');
+    localStorage.removeItem('refreshTokenExpiry');
+  }, []);
+
+  const refreshAccessToken = useCallback(async () => {
     if (Date.now() > refreshTokenExpiry) {
       logout();
       return;
@@ -70,7 +85,7 @@ const AuthProvider = ({ children }) => {
       } = refreshResponse.data;
       setToken(newToken);
       setRefreshToken(newRefreshToken);
-      const expiryTime = Date.now() + 15 * 60 * 1000; // Set token expiry to 15 minutes from now
+      const expiryTime = Date.now() + 15 * 60 * 1000;
       setTokenExpiry(expiryTime);
       setRefreshTokenExpiry(newRefreshTokenExpiry);
       localStorage.setItem('token', newToken);
@@ -80,37 +95,20 @@ const AuthProvider = ({ children }) => {
     } catch (error) {
       logout();
     }
-  };
+  }, [token, refreshToken, refreshTokenExpiry, logout]);
 
-  // Function to handle logout
-  const logout = () => {
-    setUser(null); // Clear the user state
-    setToken(''); // Clear the token
-    setTokenExpiry(0); // Clear the token expiry time
-    setCartId(null); // Clear the cart ID
-    setWishlistId(null); // Clear the wishlist ID
-    setCart([]); // Clear the cart
-    setWishlist([]); // Clear the wishlist
-    localStorage.removeItem('user');
-    localStorage.removeItem('token');
-    localStorage.removeItem('tokenExpiry');
-    localStorage.removeItem('refreshToken');
-    localStorage.removeItem('refreshTokenExpiry');
-  };
-
-  const checkTokenExpiry = () => {
+  const checkTokenExpiry = useCallback(() => {
     if (token && Date.now() > tokenExpiry) {
       refreshAccessToken();
     }
-  };
+  }, [token, tokenExpiry, refreshAccessToken]);
 
   useEffect(() => {
     checkTokenExpiry();
-    const interval = setInterval(checkTokenExpiry, 1 * 60 * 1000); // Check token expiry every minute
+    const interval = setInterval(checkTokenExpiry, 1 * 60 * 1000);
     return () => clearInterval(interval);
-  }, [token, tokenExpiry]);
+  }, [checkTokenExpiry]);
 
-  // fetch cart and wishlist data when the user state changes
   useEffect(() => {
     if (user) {
       const fetchCartAndWishlist = async () => {
@@ -144,24 +142,28 @@ const AuthProvider = ({ children }) => {
   return (
     <AuthContext.Provider
       value={{
-        user, // The current authenticated user object
-        token, // The authentication token for the user
-        login, // The function to log in a user
-        logout, // The function to log out a user
-        cartId, // The ID of the user's cart
-        wishlistId, // The ID of the user's wishlist
-        setCartId, // Function to set the cart ID
-        setWishlistId, // Function to set the wishlist ID
-        cart, // The array of items in the user's cart
-        setCart, // Function to set the cart items
-        wishlist, // The array of items in the user's wishlist
-        setWishlist, // Function to set the wishlist items
+        user,
+        token,
+        login,
+        logout,
+        cartId,
+        wishlistId,
+        setCartId,
+        setWishlistId,
+        cart,
+        setCart,
+        wishlist,
+        setWishlist,
         refreshAccessToken,
       }}
     >
       {children}
     </AuthContext.Provider>
   );
+};
+
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export { AuthContext, AuthProvider };

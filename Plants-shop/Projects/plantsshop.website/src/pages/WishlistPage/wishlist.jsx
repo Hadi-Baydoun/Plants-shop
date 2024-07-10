@@ -17,8 +17,7 @@ export default function Wishlist() {
   const [snackbarMessage, setSnackbarMessage] = useState('');
   const [snackbarSeverity, setSnackbarSeverity] = useState('success');
   const [snackbarOpen, setSnackbarOpen] = useState(false);
-  const { user, wishlistId, setWishlistId, cartId, setCartId } =
-    useContext(AuthContext);
+  const { user, setWishlistId, cartId, setCartId } = useContext(AuthContext);
 
   useEffect(() => {
     if (user) {
