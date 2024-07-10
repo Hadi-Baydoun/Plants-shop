@@ -1,4 +1,3 @@
-import React from 'react';
 import { Typography } from '@mui/material';
 import aboutJourney from '../../../assets/pictures/aboutJourney.webp';
 import './OurJourney.css';
@@ -20,7 +19,7 @@ export default function OurJourney() {
           everywhere. Each plant we offer is nurtured with care and expertise,
           ensuring it thrives and transforms your space.
           <br />
-          <br /> At GreenGlow, every plant is more than just a product, It's a
+          <br /> At GreenGlow, every plant is more than just a product, It is a
           piece of our journey and a promise of a greener, more vibrant world
           for you.
         </Typography>

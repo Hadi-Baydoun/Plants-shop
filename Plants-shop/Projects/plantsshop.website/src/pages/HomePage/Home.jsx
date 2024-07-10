@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import { Suspense, lazy } from 'react';
 import Hero from './HeroSection/Hero';
 
 // Lazy load the components
@@ -8,25 +8,13 @@ const Features = lazy(() => import('./FeaturesSection/Features'));
 const Reasons = lazy(() => import('./ReasonsSection/Reasons'));
 const Testimonials = lazy(() => import('./TestimonialsSection/Testimonials'));
 
-export default function Home({
-  loggedInUser,
-  cartId,
-  setCartId,
-  wishlistId,
-  setWishlistId,
-}) {
+export default function Home() {
   return (
     <div className="home">
       <Hero />
       <Suspense fallback={<div>Loading...</div>}>
         <Features />
-        <Arrivals
-          loggedInUser={loggedInUser}
-          cartId={cartId}
-          setCartId={setCartId}
-          wishlistId={wishlistId}
-          setWishlistId={setWishlistId}
-        />
+        <Arrivals />
         <AboutUsHome />
         <Reasons />
         <Testimonials />

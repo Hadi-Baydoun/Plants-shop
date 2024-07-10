@@ -1,4 +1,3 @@
-import React from 'react';
 import aboutStory from '../../../assets/pictures/aboutStory.webp';
 import { Typography } from '@mui/material';
 import './OurStory.css';

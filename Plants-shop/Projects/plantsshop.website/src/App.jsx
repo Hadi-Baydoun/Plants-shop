@@ -19,7 +19,7 @@ const ProductDescription = lazy(
 const AboutUs = lazy(() => import('./pages/AboutUsPage/AboutUs'));
 const Contact = lazy(() => import('./pages/ContactPage/Contact'));
 const Cart = lazy(() => import('./pages/CartPage/Cart'));
-const OrderPage = lazy(() => import('./pages/OrderPage/OrderPage'));
+/*const OrderPage = lazy(() => import('./pages/OrderPage/OrderPage'));*/
 const Wishlist = lazy(() => import('./pages/WishlistPage/wishlist'));
 
 function App() {
@@ -39,7 +39,7 @@ function App() {
               <Route path="/about" element={<AboutUs />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/cart" element={<Cart />} />
-              <Route path="/order" element={<OrderPage />} />
+              {/*<Route path="/order" element={<OrderPage />} />*/}
               <Route path="/wishlist" element={<Wishlist />} />
             </Routes>
           </Suspense>

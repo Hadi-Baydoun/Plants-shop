@@ -10,9 +10,9 @@ export default function ContactHero() {
       <div className="aboutus-content">
         <div className="aboutus-left">
           <Typography variant="h6" className="aboutus-title" color={'#ffffff'}>
-            We're here to assist you in any way we can. Whether you have
+            We are here to assist you in any way we can. Whether you have
             questions about our products, need personalized recommendations, or
-            simply want to connect with our team, don't hesitate to reach out.
+            simply want to connect with our team, do not hesitate to reach out.
           </Typography>
         </div>
         <div className="aboutus-right">

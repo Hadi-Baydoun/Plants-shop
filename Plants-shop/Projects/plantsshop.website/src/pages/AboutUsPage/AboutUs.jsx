@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import { Suspense, lazy } from 'react';
 import AboutUsHero from './HeroSection/AboutUsHero';
 
 // Lazy load the components
