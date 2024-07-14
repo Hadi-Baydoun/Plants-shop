@@ -141,11 +141,7 @@ export default function Arrivals() {
                 className="product-image"
                 onClick={() => handleItemClick(item)}
               >
-                <img
-                  rel="preload"
-                  src={item.image_url}
-                  alt={`Product ${index}`}
-                />
+                <img src={item.image_url} alt={`Product ${index}`} />
               </div>
               <div className="product-info">
                 <Typography className="product-name">{item.name}</Typography>

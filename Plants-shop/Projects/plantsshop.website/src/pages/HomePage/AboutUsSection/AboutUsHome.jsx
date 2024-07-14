@@ -25,7 +25,6 @@ export default function AboutUsHome() {
               <LazyLoadImage
                 src={benefits1}
                 className="benefit-image"
-                rel="preload"
                 alt="Grown with Love & Delivered with Care"
               />
               <p>Grown with Love & Delivered with Care</p>
@@ -33,7 +32,6 @@ export default function AboutUsHome() {
             <li>
               <LazyLoadImage
                 src={benefits2}
-                rel="preload"
                 className="benefit-image"
                 alt="Shipped Fresh From The Nursery"
               />
@@ -42,7 +40,6 @@ export default function AboutUsHome() {
             <li>
               <LazyLoadImage
                 src={benefits3}
-                rel="preload"
                 className="benefit-image"
                 alt="Happy Plant 30 Day Guarantee"
               />
@@ -55,7 +52,6 @@ export default function AboutUsHome() {
                 src={benefits4}
                 className="benefit-image"
                 alt="Full Grown Plants - Right to Your Door"
-                rel="preload"
               />
               <p>Full Grown Plants - Right to Your Door</p>
             </li>
@@ -64,7 +60,6 @@ export default function AboutUsHome() {
                 src={benefits5}
                 className="benefit-image"
                 alt="Expert advice - support@greenglow.com"
-                rel="preload"
               />
               <p>Expert advice - support@greenglow.com</p>
             </li>
@@ -73,7 +68,6 @@ export default function AboutUsHome() {
                 src={benefits6}
                 className="benefit-image"
                 alt="Care Instructions With Every Order"
-                rel="preload"
               />
               <p>Care Instructions With Every Order</p>
             </li>
@@ -93,7 +87,6 @@ export default function AboutUsHome() {
           src={benefitsBig}
           className="benefit-big-image"
           alt="Large Benefit"
-          rel="preload"
         />
       </div>
     </div>

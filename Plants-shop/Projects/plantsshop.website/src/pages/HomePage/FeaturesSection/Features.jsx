@@ -39,7 +39,6 @@ export default function Features() {
         <motion.div className="single_shipping" variants={shippingVariants}>
           <div className="shipping_icone">
             <img
-              rel="preload"
               src="//lukani-demo.myshopify.com/cdn/shop/files/shipping1.png?v=1613792728"
               alt="Free Delivery"
             />
@@ -61,7 +60,6 @@ export default function Features() {
         <motion.div className="single_shipping" variants={shippingVariants}>
           <div className="shipping_icone">
             <img
-              rel="preload"
               src="//lukani-demo.myshopify.com/cdn/shop/files/shipping2.png?v=1613792729"
               alt="Safe Payment"
             />
@@ -84,7 +82,6 @@ export default function Features() {
         <motion.div className="single_shipping" variants={shippingVariants}>
           <div className="shipping_icone">
             <img
-              rel="preload"
               src="//lukani-demo.myshopify.com/cdn/shop/files/shipping3.png?v=1613792729"
               alt="Friendly Services"
             />
