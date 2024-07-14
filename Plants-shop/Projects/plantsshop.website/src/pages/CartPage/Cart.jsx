@@ -49,7 +49,7 @@ export default function Cart() {
     return cartItems.reduce((acc, item) => acc + item.total, 0).toFixed(2);
   };
 
-/*  const handleProceedToCheckout = () => {
+  /*  const handleProceedToCheckout = () => {
     navigate('/order');
   };*/
 

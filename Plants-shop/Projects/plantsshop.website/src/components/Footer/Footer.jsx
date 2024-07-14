@@ -4,6 +4,7 @@ import pay from '../../assets/pictures/pay.webp';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import YouTubeIcon from '@mui/icons-material/YouTube';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
@@ -14,15 +15,15 @@ export default function Footer() {
 
       <div className="col">
         <h4>About</h4>
-        <a href="/about">About us</a>
-        <a href="#">Privacy Policy</a>
-        <a href="/contact">Contact us</a>
+        <Link to="/about">About us</Link>
+        <Link to="#">Privacy Policy</Link>
+        <Link to="/contact">Contact us</Link>
       </div>
 
       <div className="col">
         <h4>My Account</h4>
-        <a href="/cart">View Cart</a>
-        <a href="/wishlist">My Wishlist</a>
+        <Link to="/cart">View Cart</Link>
+        <Link to="/wishlist">My Wishlist</Link>
       </div>
 
       <div className="col install">

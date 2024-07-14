@@ -77,7 +77,6 @@ export default function Reasons() {
             alt="Plant"
             effect="blur"
             className="reason-image"
-            rel="preload"
           />
         </div>
       </motion.div>
