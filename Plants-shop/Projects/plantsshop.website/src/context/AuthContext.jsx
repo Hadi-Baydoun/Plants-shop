@@ -1,4 +1,10 @@
-import { createContext, useState, useEffect, useCallback } from 'react';
+import {
+  createContext,
+  useState,
+  useEffect,
+  useCallback,
+  useContext,
+} from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { API_HOST } from '../assets/constants';
@@ -166,4 +172,7 @@ AuthProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export { AuthContext, AuthProvider };
+// Custom hook to use the AuthContext
+const useAuth = () => useContext(AuthContext);
+
+export { AuthContext, AuthProvider, useAuth };
