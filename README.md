@@ -15,15 +15,38 @@ The backend APIs are documented using Swagger, featuring four HTTP methods:
    
 In the backend, each table in the database is associated with a model and a controller. For the frontend, MUI library is utilized along with Axios for API handling.
 
-Setup Instructions
+## Setup Instructions
 
 To run the project locally, follow these steps:
 
-1. Download the database (will be uploaded later).
-2. Make sure you have Node.js installed.
-3. Using Visual Studio, navigate to the plantsshop.admin and plantsshop.website projects and open the terminal. Then execute the following command:
-   
-      npm i 
+1. **Download the Database**
+   - Download the database (will be uploaded later).
 
-5. Right-click on the solution and select "Configure Startup Project". Choose "Multiple Startup Projects" and set all three projects (plantsshop.admin, PlantsShop.API, plantsshop.website) to start.
-6. Start the solution.
+2. **Install Node.js**
+   - Ensure you have [Node.js](https://nodejs.org/) installed on your machine.
+
+3. **Setup Projects in Visual Studio**
+   - Open Visual Studio.
+   - Navigate to the `plantsshop.admin` and `plantsshop.website` projects.
+   - Open the terminal for each project and execute the following commands:
+
+     ```sh
+     npm i
+     npm run build
+     ```
+
+4. **Set API Project as Startup**
+   - Right-click on `PlantsShop.API`.
+   - Select "Set as Startup Project".
+   - Start the project. The Swagger page will open automatically.
+
+5. **Serve the Website**
+   - Open the terminal for the `plantsshop.website` project.
+   - Execute the following commands:
+
+     ```sh
+     cd dist
+     npx http-server -p 5173 --gzip
+     ```
+
+
