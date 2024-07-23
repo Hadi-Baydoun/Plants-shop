@@ -1,21 +1,32 @@
-Project Overview
+## Project Overview
 
 This project is an ecommerce website focused on selling plants. It comprises a MySQL database and an Admin CMS to manage products along with the actual website. The backend is developed using ASP .NET MVC 8, while the frontend utilizes React.JS. The project folder contains three main projects:
 
-1. plantsshop.admin: Admin Page
-2. PlantsShop.API: APIs
-3. plantsshop.website: Website
-   
-The backend APIs are documented using Swagger, featuring four HTTP methods:
+1. **plantsshop.admin**: Admin Page
+2. **PlantsShop.API**: APIs
+3. **plantsshop.website**: Website
 
-1. HttpGet
-2. HttpPost
-3. HttpPut
-4. HttpDelete
-   
-In the backend, each table in the database is associated with a model and a controller. For the frontend, MUI library is utilized along with Axios for API handling.
+### Backend APIs
 
-## Setup Instructions
+The backend APIs are documented using Swagger and feature four main HTTP methods:
+
+1. `HttpGet`
+2. `HttpPost`
+3. `HttpPut`
+4. `HttpDelete`
+
+Each table in the database is associated with a model and a controller in the backend.
+
+### Frontend
+
+For the frontend, the following technologies are utilized:
+
+- **React.JS**: For building user interfaces.
+- **MUI library**: For UI components.
+- **Axios**: For API handling.
+
+
+## Setup And Running Instructions
 
 To run the project locally, follow these steps:
 
