@@ -31,7 +31,7 @@ For the frontend, the following technologies are utilized:
 To run the project locally, follow these steps:
 
 1. **Download the Database**
-   - Download the database (will be uploaded later).
+   - Download the database.
 
 2. **Install Node.js**
    - Ensure you have [Node.js](https://nodejs.org/) installed on your machine.
