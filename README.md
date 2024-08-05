@@ -60,4 +60,20 @@ To run the project locally, follow these steps:
      npx http-server -p 5173 --gzip
      ```
 
+## Video Demonstrations
 
+Admin Panel Walkthrough
+Watch the video below for a complete walkthrough of the admin panel:
+
+Click the image 
+above to watch the video.
+
+https://github.com/user-attachments/assets/7daf52a6-88be-4853-91ae-5e56163400fa
+
+
+
+Website Walkthrough
+Watch the video below for a complete walkthrough of the e-commerce website:
+
+
+Click the image above to watch the video.
