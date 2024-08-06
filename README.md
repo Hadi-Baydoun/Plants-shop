@@ -61,3 +61,14 @@ To run the project locally, follow these steps:
      ```
 
 
+## Video Demonstrations
+Website Walkthrough
+Watch the video below for a complete walkthrough of the e-commerce website:
+
+
+https://drive.google.com/file/d/1mhdeMn6Xe-6mPwAyTm1eO5tCe7jGZgF7/view?usp=drive_link
+
+Admin Panel Walkthrough
+Watch the video below for a complete walkthrough of the admin panel:
+
+https://drive.google.com/file/d/1tmvr37R0erAO_A0PsJPTQT1pcNkp0P_0/view?usp=drive_link
