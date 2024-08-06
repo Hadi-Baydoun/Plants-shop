@@ -68,7 +68,11 @@ Watch the video below for a complete walkthrough of the e-commerce website:
 
 https://drive.google.com/file/d/1mhdeMn6Xe-6mPwAyTm1eO5tCe7jGZgF7/view?usp=drive_link
 
+In the website, customers can browse products by searching or filtering by category. To add a product to the wishlist or cart, customers need to log in or sign up
+
 Admin Panel Walkthrough
 Watch the video below for a complete walkthrough of the admin panel:
 
 https://drive.google.com/file/d/1tmvr37R0erAO_A0PsJPTQT1pcNkp0P_0/view?usp=drive_link
+
+The admin panel is designed to facilitate adding, editing, and deleting products in the database. It can also be used to manage stock and products for the website.
